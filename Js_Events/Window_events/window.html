@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Events</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'gill sans', 'helvetica', 'arial', sans-serif;
+        }
+        
+        html ,body {
+            height: 100%;
+            width: 100%;
+            font-size: 62.5%;
+        }
+        .container{
+            width: 100%;
+            height: 10vh;
+            background-color: #414141;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button{
+            width: 10%;
+            height: 5vh;
+            color: #212121;
+            background-color: white;
+            border-radius: 18px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        .text_container{
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            
+        }
+        p{
+            font-size: 3rem;
+            margin: 25px;
+            text-align: justify;
+            border: 1px solid black;
+            padding: 20px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn1">open</button>
+        <button class="btn2">close</button>
+    </div>
+    <div class="text_container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur placeat, iure ipsa quae ipsum, odio, in ipsam temporibus sequi dolor voluptatum! Temporibus veritatis magni amet molestias maxime ducimus exercitationem, cumque harum deleniti dignissimos iure facere ipsam. Labore architecto odio voluptates? Veniam dicta, cumque quibusdam provident quae sunt numquam quidem autem.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias veniam quisquam, nisi esse eos deleniti earum nostrum libero maxime perspiciatis alias, dicta cupiditate dignissimos iusto modi pariatur tempora repudiandae doloribus totam recusandae. Laboriosam nemo ipsa quidem hic? Veniam aperiam cumque obcaecati temporibus fugiat expedita unde doloribus minima iusto distinctio dolore blanditiis iste recusandae aut eveniet sapiente ipsam in, quod soluta eos quas molestiae. Praesentium, enim sed, accusamus molestias voluptates soluta ullam perferendis at quis temporibus totam vitae tempore ipsam! Nulla provident veritatis perferendis fuga ducimus quam voluptatem fugiat quos qui laborum culpa ut, quasi dicta, mollitia ab ullam aliquam rerum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro temporibus, eveniet commodi illum illo eaque voluptatem iure alias, inventore ducimus, qui recusandae natus dicta molestias numquam dolorum perspiciatis. Suscipit consequatur mollitia ullam ducimus voluptatum dolorum, inventore, fugiat quam, tempora blanditiis obcaecati eos quos dolor voluptate eligendi nemo dignissimos odio.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro temporibus, eveniet commodi illum illo eaque voluptatem iure alias, inventore ducimus, qui recusandae natus dicta molestias numquam dolorum perspiciatis. Suscipit consequatur mollitia ullam ducimus voluptatum dolorum, inventore, fugiat quam, tempora blanditiis obcaecati eos quos dolor voluptate eligendi nemo dignissimos odio.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro temporibus, eveniet commodi illum illo eaque voluptatem iure alias, inventore ducimus, qui recusandae natus dicta molestias numquam dolorum perspiciatis. Suscipit consequatur mollitia ullam ducimus voluptatum dolorum, inventore, fugiat quam, tempora blanditiis obcaecati eos quos dolor voluptate eligendi nemo dignissimos odio.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro temporibus, eveniet commodi illum illo eaque voluptatem iure alias, inventore ducimus, qui recusandae natus dicta molestias numquam dolorum perspiciatis. Suscipit consequatur mollitia ullam ducimus voluptatum dolorum, inventore, fugiat quam, tempora blanditiis obcaecati eos quos dolor voluptate eligendi nemo dignissimos odio.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut porro temporibus, eveniet commodi illum illo eaque voluptatem iure alias, inventore ducimus, qui recusandae natus dicta molestias numquam dolorum perspiciatis. Suscipit consequatur mollitia ullam ducimus voluptatum dolorum, inventore, fugiat quam, tempora blanditiis obcaecati eos quos dolor voluptate eligendi nemo dignissimos odio.</p>
+    </div>
+</body>
+<script>
+
+    // open event
+    let button = document.querySelector(".btn1")
+    let button2 = document.querySelector(".btn2")
+    let mywindow;
+    button.addEventListener("click",function(e){
+        mywindow =
+        window.open(" ","_blank","width = 400px ,height = 400px top = 50px , left = 100px");
+        mywindow.document.write("<p>This Is The New Window!</p>")
+
+    },false)
+
+    // close event
+    button2.addEventListener("click",function(e){
+        mywindow.close();
+    },false)
+    // load event
+    // wheel event (for detecting up and down)
+    window.addEventListener("wheel",function(e){
+        let body = document.querySelector("body")
+       if (e.deltaY < 0) {
+        console.log('scrolling down please.....');
+       }
+       else if(e.deltaY > 0){
+        console.log('scrolling up please....');
+       }
+    })
+    //scroll event (to detected particular pixel)
+    window.addEventListener("scroll",function(e){
+        let body = document.querySelector("body")
+        if(window.pageYOffset > 400){
+            body.style.color = "white"
+            body.style.background = "linear-gradient(grey,orange)"
+            console.log("Up to 400px");
+        }
+        else if(window.pageYOffset < 400){
+            body.style.color = 'orange'
+            body.style.background = "linear-gradient(yellow ,green ,white,pink,purple)"
+            console.log("down to 400px");   
+    }
+    })
+   
+</script>
+</html>

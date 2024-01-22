@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Generator Project</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'gill sans', 'helvetica', 'arial', sans-serif;
+    }
+    
+    html ,body {
+        height: 100%;
+        width: 100%;
+        font-size: 62.5%;
+    }
+    section{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    h1{
+        font-size: 3rem;
+        margin-bottom: 5rem;
+    }
+    button{
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+        background-color: #000;
+        color: #fff;
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+    
+    }
+    p{
+        margin-top: 2rem;
+        font-size: 2rem;
+    }
+    input{
+        width: 40%;
+        height: 6vh;
+        border-radius: 20px;
+        text-align: center;
+        font-size: 2rem;
+    }
+</style>
+<body>
+    <section>
+        <h1>Color Generator </h1>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <input type="text">
+        <button id="copy">Copy code</button>
+    </section>
+</body>
+<script>
+    let random_color = function(){
+        let color = "#";
+        let hex = "0123456789ABCDEF";
+        for(let i = 0; i < 6; i++){
+            color += hex[Math.floor(Math.random() * 16)];
+        }
+        return color
+    }
+    let input = document.querySelector("input")
+    let start = document.querySelector("#start");
+    let Stop = document.querySelector("#stop");
+    let copy = document.querySelector("#copy")
+    let section = document.querySelector("section");
+    let SI;
+
+    copy.addEventListener("click",(e)=>{
+        input.select();
+        document.execCommand("copy"); // Execute the copy command
+        input.setSelectionRange(0, 0); //Deselect the text (optional)
+    })
+    
+    let startchanging = function(){ 
+        let color = function(){
+            section.style.background = `radial-gradient(${random_color()} 10% ,${random_color()} 30% ,${random_color()} 60%)`
+            input.value = `radial-gradient(${random_color()} 10% ,${random_color()} 30% ,${random_color()} 60%)`
+        }
+        // this condition is used for to remove the overwrite
+        if (SI == null) {
+            SI = setInterval(color,1000)  
+        }
+    }
+    let stopchanging = function(){
+        clearInterval(SI)
+        SI = null
+    }
+    start.addEventListener("click",startchanging)
+    Stop.addEventListener("click",stopchanging)
+
+</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+
+        }
+        input{
+            width: 50%;
+            height: 7vh;
+            color: white;
+            background-color: black;
+            border-radius: 20px;
+            margin-top: 1%;
+        }
+        .heading{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+       <h1> Keyboard Events</h1>
+       <h2>Keydown</h2>
+       <input type="text" id="down"><br>
+       <p class="down"></p>
+       <h2>Keypress</h2>
+       <input type="text" id="press"><br>
+       <p class="press"></p>
+       <h2>Keyup</h2>
+       <input type="text" id="up">
+       <p class="up"></p>
+    </div>
+</body>
+<script>
+    // keydown
+    let down= document.querySelector("#down")
+    down.addEventListener("keydown",function(e){
+       alert(down.value)
+       let d = document.querySelector(".down")
+       d.innerHTML = down.value
+    })
+    // keypress
+    let press = document.querySelector("#press")
+    press.addEventListener("keypress",function(){
+       alert(press.value)
+       let p = document.querySelector(".press")
+       p.innerHTML = press.value
+    })
+    // keyup
+    let up = document.querySelector("#up")
+    up.addEventListener("keyup",function (e) {
+        alert(up.value)
+        let u = document.querySelector(".up")
+        u.innerHTML = up.value
+    })
+</script>
+</html>

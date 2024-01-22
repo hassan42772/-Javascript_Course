@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Timeout Methord</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'gill sans', 'helvetica', 'arial', sans-serif;
+        }
+        
+        html ,body {
+            height: 100%;
+            width: 100%;
+            font-size: 62.5%;
+        }
+        .main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .main h1{
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        .main p{
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .main button{
+            font-size: 2rem;
+            padding: 1rem 2rem;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #000;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+    <h1>Set Timeout Method</h1>
+    <p>After 2 second Set Timeout Method change in Set Timeout Change</p>
+    <button id="stop">Stop</button>
+    <p>To Stop the Set Timeout Method Click Stop Button</p>
+    </div>
+</body>
+<script>
+    let h1 = document.querySelector("h1");
+    let change = function(){
+        console.log(h1.innerHTML = "Set Timeout Change")
+    }
+    let time = setTimeout(change,2000);
+    let stop = document.querySelector("#stop").addEventListener("click",function(){
+        clearTimeout(time);
+        console.log("stopped");
+    })
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Interval Methord</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'gill sans', 'helvetica', 'arial', sans-serif;
+        }
+        
+        html ,body {
+            height: 100%;
+            width: 100%;
+            font-size: 62.5%;
+        }
+        .main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .main h1{
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+        .main p{
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .main button{
+            font-size: 2rem;
+            padding: 1rem 2rem;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #000;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+    <h1>Set Interval Method</h1>
+    <p>After 2 second Set Interval Method print Hello world!</p>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+   
+    </div>
+</body>
+<script>
+    let start = document.querySelector("#start");
+    let stop = document.querySelector("#stop");
+    let change;
+    start.addEventListener("click",function(){
+        change = setInterval(() => {
+            console.log("Hello world!");   
+        }, 1000);
+    })
+    stop.addEventListener("click",function(){
+        clearInterval(change);
+    })
+</script>
+</html>

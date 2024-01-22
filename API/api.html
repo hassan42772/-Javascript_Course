@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Api Assignment</title>
+</head>
+<body>
+   
+</body>
+<script>
+
+    
+let btn = document.createElement("button")
+        btn.style.width = "8%"
+        btn.style.height = "6vh"
+        btn.style.borderRadius = "15px"
+        btn.innerHTML = "Click"
+        btn.style.fontSize = "1.5rem"
+        btn.style.display = "flex"
+        btn.style.justifyContent = "center"
+        btn.style.alignItems = "center"
+        btn.style.margin = "10px auto"
+
+        document.body.appendChild(btn)
+
+    const api = new XMLHttpRequest();
+    const api_link  = "https://api.github.com/users/hassan42772"
+    api.open("GET" , api_link)
+    
+    api.onreadystatechange = function(){
+    console.log(api.readyState);
+        if (api.readyState === 4) {
+            console.log(this.responseText);
+            const Api_data = JSON.parse(this.responseText)
+            let btn = document.querySelector("button").addEventListener("click",function(){
+            let div = document.createElement('div')
+            div.style.width = "25%"
+            div.style.height = "60vh"
+            div.style.background = `url(${Api_data.avatar_url})`
+            div.style.backgroundPosition = "center"
+            div.style.backgroundSize = "fixed"
+            div.style.backgroundRepeat = "no-repeat"
+            div.style.display = "flex"
+            div.style.justifyContent = "center"
+            div.style.alignItems = "center"
+            div.style.borderRadius = "50%"
+            div.style.margin = "0 auto"
+            document.body.appendChild(div)
+
+            let p = document.createElement('p')
+            p.style.fontSize = "2rem"
+            p.style.display = "flex"
+            p.style.justifyContent = "center"
+            p.style.alignItems = "center"
+            p.innerText = `${Api_data.followers}`
+            document.body.appendChild(p)
+             
+            })
+        }
+    }
+    api.send()
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+/* creating multiple element with loop  */
+let  color_list = ['red','green','blue','pink','yellow','black','yellow','white','grey','purple']
+let  color_list2 = ['black','yellow','white','grey','purple','red','green','blue','pink','yellow']
+for (let i = 0; i < 10 ; i++) {
+    function maker(list,list2) {
+    const div =  document.createElement('div')
+    console.log(div);
+    div.className = 'container';
+    div.id = Math.round((Math.random() * 10) + 1);
+    div.innerText = 'i am div container';
+    //another methord to add text and it is optimized
+    /* let inner = document.createTextNode(`${txt[i]}`);
+    div.appendChild(inner) */
+    div.setAttribute('title' , 'container');
+    div.style.backgroundColor = list[i];
+    div.style.color = list2[i];
+    div.style.padding = '10px';
+    div.style.border = '2px solid black';
+    div.style.borderRadius = '15px'
+    div.style.display = 'flex';
+    div.style.justifyContent = 'center';
+    document.body.appendChild(div)   
+    }
+    maker(color_list,color_list2)
+}
+
+
+/* creating single element */
+/*   const div =  document.createElement('div')
+  console.log(div);
+  div.className = 'container';
+  div.id = Math.round((Math.random() * 10) + 1);
+  div.innerText = 'i am div container';
+  div.setAttribute('title' , 'container');
+  div.style.backgroundColor = 'green';
+  div.style.color = 'orange';
+  div.style.padding = '10px';
+  div.style.border = '2px solid black';
+  div.style.borderRadius = '15px'
+  document.body.appendChild(div)
+ */
+
+</script>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Code Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'gill sans', 'helvetica', 'arial', sans-serif;
+        }
+        
+        html ,body {
+            height: 100%;
+            width: 100%;
+            font-size: 62.5%;
+        }
+        section{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(#C2E257 10% ,#C78686 30% ,#8C22EC 60%);
+        }
+        .text{
+            font-size: 3rem;
+            color: white;
+            font-weight: 600;
+        }
+        .new_result table{
+            font-size: 3rem;
+            border: 4px solid black;
+            border-collapse: collapse;
+            
+        }
+        .new_result table th{
+            font-size: 3rem;
+            border: 4px solid black;
+            border-collapse: collapse;
+            padding: 30px;
+            
+            text-align: center;
+
+        }
+        .new_result table tr{
+            font-size: 3rem;
+            border: 4px solid black;
+            border-collapse: collapse;
+            
+        }
+        .new_result table td{
+            font-size: 3rem;
+            text-align: center;
+            border: 4px solid black;
+            border-collapse: collapse;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="result">
+            <div class="text">
+                Press Keyboard Key To See Key Code
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    let result = document.querySelector('.result')
+    window.addEventListener("keydown" , (e)=>{
+        result.innerHTML = `
+        <div class = 'new_result'>
+            <table>
+            <tr>
+                <th>key</th>
+                <th>code</th>
+                <th>keyCode</th>
+            </tr>
+            <tr>
+                <td>${e.key === ' ' ? "space" : e.key}</td>
+                <td>${e.code}</td>
+                <td>${e.keyCode}</td>
+            </tr>
+            </table>     
+        </div>
+            `
+    })
+</script>
+</html>

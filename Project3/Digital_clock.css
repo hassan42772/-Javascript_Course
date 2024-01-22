@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    font-size: 62.5%;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.445),rgba(0, 0, 0, 0.37)),url('./d8o81hv-6ab3068d-87f7-452b-b2f0-267d25cad9d0.jpg');
+    background-size: cover;
+    background-position: center;
+    
+}
+.heading_container{
+    width: 100%;
+    height: 15vh;
+    margin: 0 auto;
+    padding-top: 1rem;
+    
+    
+}
+.heading_container h1{
+    font-size: 6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+    text-align: center;
+    padding-top: 1rem;
+    -webkit-text-stroke: 2.5px rgb(185, 157, 94);
+    backdrop-filter: blur(10px);
+    color: transparent;
+    border-radius: 20px;
+}
+.clock_container{
+    width: 49%;
+    height: 78vh;
+    display: flex;
+    margin: 30px auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #9e929217;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+}
+.DMY_container{
+    width: 80%;
+    height: 25%;
+    /* background-color: #9e92927a; */
+    margin-bottom: 0.9rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.day{
+    width: 25%;
+    height: 90%;
+    /* background-color: rgba(255, 255, 255, 0.349); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 900;
+    backdrop-filter:blur(50px);
+    border-radius:50%;
+    color:rgb(34, 16, 3);
+}
+.month{
+    width: 25%;
+    height: 90%;
+    /* background-color: rgba(255, 255, 255, 0.349); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border-radius:50%;
+    backdrop-filter:blur(50px);
+    font-weight: 900;
+    color:rgb(34, 16, 3);
+
+}
+.year{
+    width: 25%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 900;
+    border-radius:50%;
+    backdrop-filter:blur(50px);
+    color:rgb(34, 16, 3);
+    
+
+}
+.time_container{
+    width: 50%;
+    height: 65%;
+    /* background-color: #9e92927a; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 3rem;
+    font-weight: 900;
+    -webkit-text-stroke: 2px rgb(34, 16, 3);
+    color:transparent;
+    backdrop-filter:blur(50px);
+}

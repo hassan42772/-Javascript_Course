@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'gill sans', 'helvetica', 'arial', sans-serif;
+}
+
+html ,body {
+    height: 100%;
+    width: 100%;
+    font-size: 62.5%;
+}
+
+section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./images/new_wall.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.main_frame{
+    width: 30%;
+    height: 95vh;
+    background-color: #08080841;
+    backdrop-filter: blur(30px);
+    color: transparent;
+    border-radius: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.part{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.part img{
+    width: 180px;
+}
+.part1{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 60px;
+    
+}
+.part1 img{
+    width: 30rem;
+    border-radius: 50%;
+
+}
+.part1 h2{
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+.part2{
+    width: 100%;
+    height: 10%;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+.part2 button{
+    padding:13px 60px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-image: linear-gradient(to left bottom, #2b2b2b, #292929, #272727, #252525, #232323, #252525, #272727, #292929, #2f2f2f, #353535, #3b3b3b, #414141);
+    color: white;
+    font-size: 2.5rem;
+    position: relative;
+            z-index: 1;
+}
+
+
+.part2 button:hover{
+    color: #000000;
+    box-shadow: 0 0 5px rgb(117, 117, 117),0 0 5px rgb(117, 117, 117) 
+    inset;     
+    border-radius: 20px;
+}
+.part2 button::selection{
+    color: #e91010;
+    background: rgb(0, 0, 0);
+    border-radius: 20px;
+}
+.part2 button:active{
+    color: rgb(0, 0, 0);
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgb(117,117,117),
+    0 0 15px rgb(117,117,117),
+    0 0 25px rgb(117,117,117) ,
+    0 0 35px rgb(117,117,117) ,
+    0 0 70px rgb(117,117,117) ,
+    0 0 140px rgb(117,117,117) ,
+    0 0 280px rgb(117,117,117) ;
+}
+.part2 button::after{
+    position: absolute;
+    border-radius: 20px;
+    content: '';
+    top: 0;
+    right: 0;
+    width: 0;
+    box-shadow: 0 0 20px rgb(117,117,117);
+    height: 100%;
+    background: rgb(117,117,117);
+    z-index: -1;
+    transition:  0.3s;
+}
+.part2 button:hover::after{
+    width: 100%;
+    border-radius: 20px;
+    left: 0;
+    transition: 0.3s;
+}
+.part2 button a{
+    text-decoration: none;
+    color: white;
+}

@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM (Creating element)</title>
+</head>
+<body style="background-color: #212121; color: green;">
+    <div class="parent_container">
+        <div class="child_container">Monday</div>
+        <div class="child_container">Tuesday</div>
+        <div class="child_container">Wednesday</div>
+        <div class="child_container">Thursday</div>
+        <div class="child_container">Friday</div>
+        <div class="child_container">Satuarday</div>
+        <div class="child_container">Sunday</div>
+    </div>
+</body>
+<script>
+    // parent ---> child
+    const parent =  document.querySelector('.parent_container')
+    console.log(parent);
+    console.log(parent.children); /* access child here */
+    // console.log(parent.children[0].innerHTML);
+
+    // for (let i = 0; i < parent.children.length; i++) {
+    //       console.log(parent.children[i].innerHTML)   
+    // }
+
+    let changing = Array.from(parent.children) /* in this step we changing in pure array */
+    console.log(changing);
+
+    changing.forEach( (p) => {
+        let inner = p.innerHTML
+        console.log(inner);
+        p.style.color = 'yellow';
+        p.style.backgroundColor = 'red';
+        p.style.padding = '10px';
+        p.style.margin = '5px';
+        p.style.borderRadius = '15px';
+        p.style.display = 'flex';
+        p.style.justifyContent = 'center'
+    });
+
+   // console.log(parent.firstElementChild.innerHTML); /* access first child */
+   // console.log(parent.lastElementChild.innerHTML); /* access last child */
+    
+    // child ---> parent
+
+    const child = document.querySelector('.child_container')
+    console.log(child);
+    console.log(child.parentElement);
+    console.log(child.nextElementSibling);
+
+    console.log(parent.childNodes); // nodes 
+
+   /*  let nodes = parent.childNodes
+    nodes.forEach((e) => {
+        console.log(e.innerHTML);
+    }); */
+    
+</script>
+</html>

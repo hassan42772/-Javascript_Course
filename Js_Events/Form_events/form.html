@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Events</title>
+    <style>
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /*align-items: center; */
+      }
+      label {
+        font-size: 1.5rem;
+      }
+      input {
+        width: 30%;
+        height: 5vh;
+        margin: 5px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      input[type="submit"] {
+        width: 10%;
+        height: 5vh;
+        font-size: 1.2rem;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="">
+      <label for="text">Name</label>
+      <input type="text" id="text" />
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+      <input type="submit" value="submit" id="submit" />
+    </form>
+    <div class="text_container">
+      <p></p>
+      <p id="p"></p>
+      <p id="p1"></p>
+    </div>
+  </body>
+  <script>
+
+    // focus event
+    let focus_event = document.querySelector("#text");
+    focus_event.addEventListener(
+      "focus",
+      function (e) {
+        focus_event.style.background = "linear-gradient(yellow,red,green)";
+        focus_event.style.fontSize = '1.2rem'
+      },
+      false
+    );
+
+    // change event
+    let change_event = document.querySelector("#text");
+    change_event.addEventListener(
+      "change",
+      function () {
+        change_event.style.background = "";
+        // change_event.value = "";
+      },
+      false
+    );
+
+    // input event
+    let input_event = document.querySelector("#text");
+    input_event.addEventListener("input", function () {}, false);
+    
+    // submit event
+    let submit = document.querySelector("form");
+    console.log(submit);
+    submit.addEventListener(
+      "submit",
+      function (e) {
+        e.preventDefault();
+        let body = document.querySelector("body");
+        body.style.background = "linear-gradient(red 20%,blue 10%,orange 40% ,white 20% ,green 10%)";
+        let email = document.querySelector("#email")
+        let p2 = document.querySelector("p");
+        p2.innerHTML = input_event.value;
+        let p = document.querySelector("#p")
+        p.innerHTML = email.value
+      },
+      false
+    );
+
+    // select event
+    let input = document.querySelector("#text")
+    input.addEventListener("select",function(e){
+        let p = document.querySelector("#p1")
+        p.innerHTML = `you selected :${input.value}`
+        change_event.value = "";
+    },false)
+  </script>
+</html>

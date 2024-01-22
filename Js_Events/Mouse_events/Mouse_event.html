@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse_Events</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'gill sans', 'helvetica', 'arial', sans-serif;
+        }
+        
+        html ,body {
+            height: 100%;
+            width: 100%;
+            font-size: 62.5%;
+        }
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 10vh;
+            background-color: #414141;
+        }
+        button{
+            width: 10%;
+            height: 6vh;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid rgba(128, 128, 128, 0.39);
+            border-radius: 15px;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="button1">
+        <button id="click">Click</button>
+    </div>
+    <div class="button2">
+        <button id="double">Double</button>
+    </div>
+    <div class="button3">
+        <button id="over">Over</button>
+    </div>
+    <div class="button4">
+        <button id="leave">Leave</button>
+    </div>
+    <div class="button5">
+        <button id="down">Down</button>
+    </div>
+    <div class="button6">
+        <button id="up">Up</button>
+    </div>
+    <div class="button7" style="display: flex;">
+        <button id="move">move</button>
+    </div>
+    <div class="button7" style="display: flex;">
+        <p class="value" style="font-size: 2rem; border: 2px solid gray; padding: 6px; background-color: rgb(255, 255, 255); width: 10%; height: 6vh; border-radius: 15px; text-align: center;" ></p>
+    </div>
+</body>
+<script>
+    // click 
+    let button1 = document.querySelector('#click')
+    button1.addEventListener('click' , function(e){
+       let div =  document.querySelector('.button1')
+       div.style.height = "30vh"
+       div.style.background ="radial-gradient(circle, purple 5% , pink 10%, rgb(56, 197, 243))"
+
+    }, false);
+    // double click
+    let button2 = document.querySelector('#double')
+
+    button2.addEventListener('dblclick' , function(e){
+       let div =  document.querySelector('.button2');
+       div.style.height = "30vh"
+       div.style.background ="radial-gradient(circle, orange 5% , blue 10%, rgb(11, 250, 243))"
+    }, false);
+    // mouse over
+    let button3 = document.querySelector('#over')
+    button3.addEventListener('mouseover' , function(e){
+       let div =  document.querySelector('.button3');
+       div.style.height = "30vh"
+       div.style.background ="radial-gradient(circle, red 5% , yellow 10%, rgb(11, 197, 243))"
+    }, false);
+    // mouse leave
+    let button4 = document.querySelector('#leave')
+    button4.addEventListener('mouseleave' , function(e){
+       let div =  document.querySelector('.button4');
+       div.style.height = "30vh";
+       div.style.background ="radial-gradient(circle, black 5% , green 10%, rgb(11, 197, 243))"
+    }, false)
+    // mouse down
+    let button5 = document.querySelector('#down')
+    button5.addEventListener('mousedown' , function(e){
+       let div =  document.querySelector('.button5');
+       div.style.height = "30vh";
+       div.style.background ="radial-gradient(circle, grey 15% ,  aqua 20%, rgb(110, 197, 243))"
+    }, false)
+    // mouse up
+    let button6 = document.querySelector('#up')
+    button6.addEventListener('mouseup' , function(e){
+       let div =  document.querySelector('.button6');
+       div.style.height = "30vh";
+       div.style.background ="radial-gradient(circle, brown 25% ,   red 20%, rgb(110, 197, 243))"
+    }, false)
+    // mouse move
+    let button7 =  document.querySelector('#move');
+    let result = document.querySelector('.value')
+    button7.addEventListener('mousemove' , function(e){
+       let x = e.offsetX
+       let y = e.offsetY
+       result.innerHTML = `<p>${x} , ${y}</p>`
+    }, false)
+    button7.addEventListener('mouseout' , function(e){
+       let x = e.offsetX
+       let y = e.offsetY
+       result.innerHTML = `<p></p>`
+    }, false)
+
+</script>
+</html>

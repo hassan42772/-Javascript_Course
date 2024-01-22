@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice DOM</title>
+</head>
+<body style="background-color: rgb(232, 241, 113);">
+
+</body>
+<script>
+    color_list = ['red','blue','green','pink','orange','purple']
+    backgroundColor_list= ['pink','orange','purple','red','blue','green']
+    border_list=['12px' ,'23px' , '34px' , '45px' ,'56px' ,'67px']
+    border = ['4px solid red','4px solid blue','4px solid green','4px solid pink','4px solid orange','4px solid purple',]
+
+    for (let i = 0; i <= 5; i++) {
+        hello =(list,list2,list3,list4) =>{
+        let div = document.createElement('div')
+        console.log(div);
+        div.id = Math.round((Math.random() * 10)+1)
+        div.className = 'container'
+        div.innerText = 'Code with hassan'
+        div.setAttribute('title', 'code')
+        div.setAttribute('tabindex' , [i]) 
+        div.setAttribute('Contenteditable','true') 
+        div.style.color = list[i]
+        div.style.backgroundColor = list2[i]
+        div.style.borderRadius = list3[i]
+        div.style.border = list4[i]
+        div.style.margin='5px'
+        document.body.appendChild(div)
+}
+hello(color_list,backgroundColor_list,border_list,border)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* const parent = document.querySelector('.parent_container')
+console.log(parent);
+console.log(parent.children);
+for (let i = 0; i < parent.children.length; i++) {
+    console.log(parent.children[i].style.color = 'green');
+}
+let new_arr = Array.from(parent.children)
+console.log(new_arr);
+
+new_arr.forEach((item) => {
+    console.log(item.innerHTML)
+    item.style.color = 'yellow';
+    item.style.backgroundColor = 'black'
+    item.style.padding = '10px';
+    item.style.margin = '5px';
+    item.style.border = '3px solid yellow';
+    item.style.borderRadius = '10px'
+    
+});
+
+let child = document.querySelector('.child_container')
+console.log(child);
+console.log(child.parentElement)
+console.log(child.nextElementSibling);
+console.log(parent.childNodes); */
+
+</script>
+</html>

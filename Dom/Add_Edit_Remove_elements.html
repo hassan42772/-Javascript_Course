@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add_Edit_Remove_Element_DOM</title>
+</head>
+<body>
+    <ul class="parent_container">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    /* ------------------------ADD-------------------------- */
+
+/* methord 1 to add element */
+list_item = ["java","python","html","css","javascript"]
+for (let i = 0; i < 4; i++) {
+    function adder(language) {
+    const list_item = document.createElement('li')
+    /* list_item.appendChild(document.createTextNode(language[i])) */
+    const add = document.createTextNode(language[i]);
+    list_item.appendChild(add)
+    document.querySelector('.parent_container').appendChild(list_item)
+    }
+    adder(list_item)
+}
+    
+/* methord 2 to add element */
+/* not optimized to use this methord */
+function adder2(language) {
+    const li = document.createElement('li')
+     li.innerHTML= language
+     const selector = document.querySelector('.parent_container')
+     selector.appendChild(li)
+}
+adder2('c')
+/* ------------------------EDIT-------------------------- */
+
+/* methord 1 to Edit element */
+
+const First_Element = document.querySelector('li:first-child')
+console.log(First_Element);
+const First_creator = document.createElement('li')
+First_creator.appendChild(document.createTextNode('React js'))
+First_Element.replaceWith(First_creator)
+
+/* methord 2 to edit element */
+/* this methord is not optimized to use */
+const sec_element = document.querySelector('li:nth-child(3)')
+console.log(sec_element);
+
+sec_element.innerHTML = 'django' 
+// use both innerHTML and textContent
+sec_element.textContent = 'django'
+
+/* 3 methord to edit the element */
+const third_element = document.querySelector('li:nth-child(4)')
+console.log(third_element);
+third_element.outerHTML= '<li>database</li>'
+
+/* ------------------------REMOVE-------------------------- */
+const remover = document.querySelector('li:last-child')
+remover.remove()
+</script>
+</html>

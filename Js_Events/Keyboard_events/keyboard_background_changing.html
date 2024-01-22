@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Background Change</title>
+
+    <style>
+        body{
+            background-color: burlywood;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input{
+            width: 40%;
+            height: 10vh;
+            background-color: brown;
+            /* background-color: transparent; */
+            /* background-color: rgba(0, 0, 0, 0.144); */
+            color: orange;
+            border-radius: 20px;
+            margin-top: 18%;
+            font-size: 2rem;
+            text-align: center;
+        }
+        input::selection{
+            background-color: red;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id ="color">
+</body>
+<script>
+    let body = document.querySelector("body")
+    let input = document.querySelector("#color")
+    input.addEventListener("keypress",function(){
+        let input_value = input.value
+        body.style.background = `radial-gradient(circle ,${input_value})`  
+        body.style.backgroundColor =   input_value + ""
+        input.style.color = `${input_value}`
+        input.style.outline = `${input_value}`
+        input.style.backgroundColor = 'rgba(0, 0, 0, 0.2)'
+    },false)
+</script>
+</html>

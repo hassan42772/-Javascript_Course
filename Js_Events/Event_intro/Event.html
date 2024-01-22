@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Events</title>
+    <style>
+        ul li {
+            width: 20%;
+            height: 20vh;
+            background-color: green;
+            margin: 10px;
+            border-radius: 50px;
+            
+        }
+        h2{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            padding-top: 2.9rem;
+        }
+        a{
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            padding-top: 2.9rem;
+            text-decoration: none;
+            color: black;
+            font-size: 1.5rem;
+        }
+    
+    </style>
+</head>
+<body>
+    <ul id="main">
+        <!--
+            !this approach is not good to use.
+            *onclick="alert('you click the child1')" not good to use  
+        -->
+        <li id="child1" ><h2>I an child 1</h2></li>
+        <li id="child2"><h2>I an child 2</h2></li>
+        <li id="child3"><h2>I an child 3</h2></li>
+        <li id="child4"><h2>I an child 4</h2></li>
+        <li id="child5"><a href="https://www.google.com/" target="_blank">Google</a></li>
+    </ul>
+</body>
+<script>
+    /* 
+    this approach is not good to use
+
+    document.getElementById('child2').onclick = function(){
+        alert("you press child 2")
+    }
+    */
+   /* this apporach is good to use  */
+    // document.getElementById('child1').addEventListener('click' , function(e) {
+    //     alert("you again pressed the child 1")
+    // },false)
+
+    document.querySelector('#child5').addEventListener('click',function(e){
+        e.preventDefault();
+    },false)
+    /* Event propagation */
+    document.querySelector('#main').addEventListener('click',function(e){
+        if(e.target.tagName === 'H2' || e.target.tagName === 'A'){
+            // e.target.parentNode.remove();
+            let removeit = e.target.parentNode 
+            removeit.parentNode.removeChild(removeit)
+        }
+    },false)
+
+
+
+
+
+
+
+</script>
+</html>

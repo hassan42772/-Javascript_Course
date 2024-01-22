@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Related Target Example</title>
+  <style>
+    #myElement {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      margin: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="myElement">Hover over me</div>
+
+  <script>
+    var element = document.getElementById("myElement");
+
+    element.addEventListener("mouseover", function(event) {
+      var fromElement = event.relatedTarget;
+      console.log("Mouse moved from: " + fromElement);
+
+      // Change the background color when the mouse enters the element
+      element.style.backgroundColor = "lightgreen";
+    });
+
+    element.addEventListener("mouseout", function(event) {
+      var toElement = event.relatedTarget;
+      console.log("Mouse moved to: " + toElement);
+
+      // Change the background color back when the mouse leaves the element
+      element.style.backgroundColor = "lightblue";
+    });
+  </script>
+
+</body>
+</html>

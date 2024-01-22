@@ -1,0 +1,28 @@
+<!-- bind -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bind</title>
+</head>
+<body>
+    <button>Click</button>
+</body>
+<script>
+    class react {
+        constructor(){
+            this.username = "React";
+            this.server = "http://localhost:3000";
+            // bind can be attched all the reference of the class 
+            document.querySelector("button").addEventListener("click",this.handleClick.bind(this));
+        }
+        handleClick(){
+            console.log("button clicked ");
+            console.log(this.username);
+            console.log(this.server);
+        }
+    }
+    const app = new react();
+</script>
+</html>

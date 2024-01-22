@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Object</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'gill sans', 'helvetica', 'arial', sans-serif;
+        }
+        
+        html ,body {
+            height: 100%;
+            width: 100%;
+            font-size: 62.5%;
+        }
+        button{
+            width: 10%;
+            height: 5vh;
+            border-radius: 15px;
+            background-color: black;
+            color: white;
+        }
+        .number1{
+            width: 24%;
+            height: 44vh;
+            background-color: rgb(0, 0, 0);
+            margin: 10px;
+            position: relative;
+            font-size: 1.4rem;
+            color: white;
+        }
+        .number2{
+            width: 70%;
+            height: 30vh;
+            position: absolute;
+            background-color: rgb(255, 0, 0);
+            margin: 10px;
+            top: 10%;
+            left: 10%;
+            font-size: 1.4rem;
+        }
+        .number3{
+            width: 100%;
+            top: 10%;
+            left: 15%;
+            position: absolute;
+            height: 30vh;
+            background-color: rgb(16, 201, 207);
+            margin: 10px;
+            font-size: 1.4rem;
+        }
+        p{
+            font-size: 3rem;
+            margin: 10px;
+       
+        }
+        .empty{
+            width: 80%;
+            height: 50vh;
+            background-color: rgb(138, 59, 59);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <button id="myButton">Button</button>
+    <div class="number1" data-name="1">1
+        <div class="number2" data-name="2">2
+            <div class="number3" data-name="3">3
+            </div>
+        </div>
+    </div>
+ <img id="image" src="./images.jpeg" alt="spider man" width="200px" height="200px">
+ <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, facilis temporibus magnam officia aut nulla! Est blanditiis officia vel odit necessitatibus obcaecati accusamus ab velit eaque id? Aliquid provident voluptas molestias quaerat quia obcaecati! Perferendis architecto corrupti sed ea magnam dolore repellat modi delectus esse nostrum sequi eaque nulla, soluta harum consequatur nesciunt voluptates assumenda, distinctio possimus ex tempore corporis minus aliquid ad! Expedita amet eius vel eligendi ad assumenda veniam repellat, ullam facere iusto odit excepturi voluptates sapiente distinctio porro inventore a modi asperiores! Expedita maiores deserunt adipisci quaerat voluptates totam perspiciatis, vel sed accusamus tempore veritatis ab modi rerum nemo magni, beatae recusandae aperiam minus, laborum nostrum saepe molestiae! Atque totam provident blanditiis consequatur architecto, quaerat, ratione dignissimos iusto eius quibusdam quo ad libero facere? Ad, fuga vero incidunt dolorum laudantium eligendi, excepturi harum consequatur cupiditate facere voluptates nulla nostrum sapiente odit voluptatibus! Distinctio sed nostrum eius illo? Eaque repudiandae libero nemo molestiae vitae, eveniet fugit ab corrupti dolore dignissimos, blanditiis at nesciunt officiis enim soluta dolores laborum ex ipsum aperiam! Id at voluptates, ipsam esse expedita ipsa animi sequi laudantium alias, cumque impedit deleniti quis perspiciatis fugit dolores, exercitationem earum provident nam quisquam repudiandae aut. Harum, nulla.lorem100</p>
+ <div class="empty">
+
+ </div>
+</body>
+<script>
+    // target or current target
+    let n1 = document.querySelector('.number1');
+    let n2 = document.querySelector('.number2');
+    let n3 = document.querySelector('.number3');
+
+    n1.addEventListener('click',function(e){
+        console.log(`TARGET ` + e.target.dataset.name);
+        console.log(`CURRENT TARGET ` +e.currentTarget.dataset.name);
+        e.stopPropagation();
+    },false)
+    n2.addEventListener('click',function(e){
+        console.log(`TARGET ` + e.target.dataset.name);
+        console.log(`CURRENT TARGET ` +e.currentTarget.dataset.name);
+        e.stopPropagation();
+    },false)
+    n3.addEventListener('click',function(e){
+        console.log(`TARGET ` + e.target.dataset.name);
+        console.log(`CURRENT TARGET ` +e.currentTarget.dataset.name);
+        e.stopPropagation();
+    },false)
+    //type of event
+   document.getElementById("myButton").addEventListener("click", function(event) {
+    console.log("Event type: " + event.type);
+    // timestamp
+    console.log("Timestamp: " + Math.round(event.timeStamp)/1000); 
+    // src 
+    let img = document.querySelector('#image');
+    img.src = './image_2.jpeg';
+});
+// src element not use in today
+let img = document.querySelector('#image');
+    img.addEventListener("click",function(event){
+        console.log("Source element source (src): " + event.target.src);
+    },false)
+// clinetX and clinetY
+let client = document.querySelector('body');
+    client.addEventListener("click",function(event){
+        console.log("clientX: " + event.clientX);
+        console.log("clientY: " + event.clientY);
+    },false)
+// pageX and pageY
+let page = document.querySelector('body');
+    page.addEventListener("click",function(event){
+        console.log("pageX: " + event.pageX);
+        console.log("pageY: " + event.pageY);
+    },false)
+// screenX and screenY
+let screen = document.querySelector('body');
+    screen.addEventListener("click",function(event){
+        console.log("screenX: " + event.screenX);
+        console.log("screenY: " + event.screenY);
+    },false)
+// offsetX and offsetY
+let offset = document.querySelector('.empty');
+    offset.addEventListener("click",function(event){
+        console.log("offsetX: " + event.offsetX);
+        console.log("offsetY: " + event.offsetY);
+    },false)
+</script>
+</html>

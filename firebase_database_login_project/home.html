@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <h1>Home Page</h1>
+    <p id="u"></p>
+    <p id="e"></p>
+    <button id="sign_out">Sign Out</button>
+</body>
+<script>
+    let info = JSON.parse(sessionStorage.getItem("user_info"));
+    let cred = JSON.parse(sessionStorage.getItem("user_creds"));
+    console.log(info);
+    console.log(cred);
+    let user = document.getElementById("u");
+    let mail = document.getElementById("e");
+    let heading = document.querySelector("h1");
+    if(cred == null){
+        window.location.href = "login_user_firebase.html";
+    }
+    else{
+        user.innerHTML = `Welcome To Firebase ${info.username}`;
+        mail.innerHTML = `You Are Logged In With ${info.email}`;
+    }
+    let sign_out = document.getElementById("sign_out");
+    sign_out.addEventListener("click",()=>{
+        sessionStorage.removeItem("user_info");
+        sessionStorage.removeItem("user_creds");
+        window.location.href = "login_user_firebase.html";
+    })
+
+</script>
+</html>
